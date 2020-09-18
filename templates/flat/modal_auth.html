@@ -1,0 +1,61 @@
+{% load auth_base_tags i18n account socialaccount %}
+{% loadLoginForm as loginform %}
+
+<!-- Modal -->
+    <div class="modal fade" id="signinForm" tabindex="-1" role="dialog" aria-labelledby="signinFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="signinFormLabel">Войти на сайт</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+              <form class="login" method="POST" action="{% url 'account_login' %}">
+                  {% csrf_token %}
+{#                  {{ loginform.as_p }}#}
+                  <input id="id_login" type="text" class="form-control" name="login" autofocus="autofocus" placeholder="Login или Email" maxlength="150" required>
+                  <input type="password" name="password" placeholder="Пароль" required id="id_password" class="form-control">
+
+                  {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                  {% endif %}
+
+                  <button id="submit-auth" class="form-control" type="submit" name="submit">{% trans "Sign In" %}</button>
+                    <div class="custom-control custom-checkbox d-flex justify-content-between flex-wrap">
+                        <input type="checkbox" class="custom-control-input" name="remember" id="id_remember">
+                        <label class="custom-control-label text-small text-muted" for="id_remember">Запомнить меня</label>
+                        <a class="button secondaryAction text-small" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                    </div>
+              </form>
+            <form class="membership-form webform" role="form">
+          </div>
+          <div class="modal-body">
+              {% get_providers as socialaccount_providers %}
+           {% if socialaccount_providers %}
+               <hr>
+               <div class="d-flex justify-content-around">
+               {% for provider in socialaccount_providers %}
+                       {% if provider.id == "openid" %}
+                           {% for brand in provider.get_brands %}
+                               <a title="{{brand.name}}"
+                                  class="socialaccount_provider fab fa-{{provider.id}} {{brand.id}}"
+                                  href="{% provider_login_url provider.id openid=brand.openid_url process=process %}"
+                               ></a>
+                           {% endfor %}
+                       {% endif %}
+                       <a title="Авторизация через {{provider.name}}" class="socialaccount_provider fab fa-{{provider.id}}" style="font-size: 32px;"
+                          href="{% provider_login_url provider.id process=process scope=scope auth_params=auth_params %}"></a>
+               {% endfor %}
+               </div>
+           {% endif %}
+          </div>
+
+        </div>
+      </div>
+    </div>

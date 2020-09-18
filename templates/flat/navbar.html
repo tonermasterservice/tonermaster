@@ -1,0 +1,64 @@
+<!-- MENU BAR -->
+{% load static %}
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+
+            <a class="navbar-brand" href="/">TonerMaster</a>
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-lg-auto">
+                    <li class="nav-item">
+                        <a href="#home" class="nav-link smoothScroll">Начало</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#about" class="nav-link smoothScroll">О нас</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a href="#services" class="nav-link smoothScroll">Услуги</a>
+                    </li>
+
+                    <!-- <li class="nav-item">
+                        <a href="#schedule" class="nav-link smoothScroll">Schedules</a>
+                    </li> -->
+
+                    <li class="nav-item"> 
+                        <a href="#contacts" class="nav-link smoothScroll">Контакты</a>
+                    </li>
+                </ul>
+
+                <ul class="social-icon ml-lg-3">
+                    <div id="fb-root"></div>
+                    <li>
+{#                        <a href="https://fb.com/tooplate" class="fa fa-facebook"></a>#}
+                        <div class="fb-share-button" data-href="http://tmv.by/" data-layout="button" data-size="large"><a target="_blank" rel="nofollow" href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftmv.by%2F&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore fab fa-facebook-f"></a></div>
+                    </li>
+
+                    <li>
+                        <script type="text/javascript"><!--
+                        document.write(VK.Share.button(false,{type: "custom", text: "<i class=\"fab fa-vk\"></i>"}));
+                        --></script>
+                    </li>
+                    <li>
+                        <a id="viber_share" href="viber://forward?text=" title="Viber" target="_blank" rel="nofollow" data-inc="1"><i class="fab fa-viber"></i></a>
+{#                      viber://forward?text=https%3A%2F%2Fnews.tut.by%2Feconomics%2F699444.html%3Futm_source%3Dviber%26utm_campaign%3Dshare%26utm_medium%3Dsocial%26utm_content%3Ddesktop#}
+                        <script>
+                            var buttonID = "viber_share";
+                            var text = "";
+                            document.getElementById(buttonID)
+                                .setAttribute('href', "https://3p3x.adj.st/?adjust_t=u783g1_kw9yml&adjust_fallback=https%3A%2F%2Fwww.viber.com%2F%3Futm_source%3DPartner%26utm_medium%3DSharebutton%26utm_campaign%3DDefualt&adjust_campaign=Sharebutton&adjust_deeplink=" + encodeURIComponent("viber://forward?text=" + encodeURIComponent(text + " " + window.location.href)));
+                                console.log(text + "\n" + window.location.href)
+                        </script>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+

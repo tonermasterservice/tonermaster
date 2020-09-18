@@ -1,0 +1,40 @@
+<!-- sign up Modal -->
+{% load i18n %}
+    <div class="modal fade" id="signupForm" tabindex="-1" role="dialog" aria-labelledby="signupFormLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="signupFormLabel">Регистрация</h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+
+            <form action=""></form>
+            <form action="{% url 'account_signup' %}" method="POST">
+                {% csrf_token %}
+                <input class="form-control" type="text" name="username" placeholder="Ваш логин" autofocus="autofocus" minlength="1" maxlength="150" required="" id="id_username">
+
+                <input class="form-control" type="email" name="email" placeholder="E-mail адрес" id="id_email">
+
+                <input class="form-control" type="password" name="password1" placeholder="Пароль" required="" id="id_password1">
+
+                <input class="form-control" type="password" name="password2" placeholder="Пароль (ещё раз)" required="" id="id_password2">
+
+                {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                {% endif %}
+                <button type="submit" class="form-control" id="submit-signup" name="submit">Зарегистрироваться</button>
+            </form>
+          </div>
+
+          <div class="modal-footer"></div>
+
+        </div>
+      </div>
+    </div>

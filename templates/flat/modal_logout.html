@@ -1,0 +1,32 @@
+{% load i18n %}
+<!-- sign up Modal -->
+    <div class="modal fade" id="logoutForm" tabindex="-1" role="dialog" aria-labelledby="logoutLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+
+        <div class="modal-content">
+          <div class="modal-header">
+
+            <h2 class="modal-title" id="logoutLabel"></h2>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+
+          <div class="modal-body">
+              <h6>{% trans 'Are you sure you want to sign out?' %}</h6>
+
+                <form method="post" action="{% url 'account_logout' %}">
+                  {% csrf_token %}
+                  {% if redirect_field_value %}
+                  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                  {% endif %}
+                  <button id="submit-logout" class="form-control" type="submit" name="submit">{% trans "Sign Out" %}</button>
+                </form>
+          </div>
+          <div class="modal-footer"></div>
+        </div>
+      </div>
+    </div>
+
+
