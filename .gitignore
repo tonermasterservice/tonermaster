@@ -1,0 +1,14 @@
+**/.idea
+**/mails
+**/venv
+**/__pycache__
+**/migrations
+**/users_avas
+**/sent_emails
+.vscode/
+*.sqlite3
+**/media
+/logs/debug.log
+/config/local_settings.py
+/config/product_settings.py
+testauth.txt
